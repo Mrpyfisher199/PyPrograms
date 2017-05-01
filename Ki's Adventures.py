@@ -125,6 +125,7 @@ def game(): #game
 				y-=1
 			elif q == curses.KEY_UP and fly<2: # Checking whether the user wants to jump or not.
 				fly=2
+			#The Bug is somewhere here (line 128 to line 147)
 			if fly>1: # if the user wants to jump:
 				if flys==1 and c < 5: #going up
 					x-=1
