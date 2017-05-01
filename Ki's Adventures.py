@@ -74,7 +74,7 @@ def game(): #game
 				if lev > 1: # if level <= 20
 					lev-=1
 				else: # else display the screen with the sword.
-					while 1:
+					while 1: # practically the same while loop like the one before us (line 43) 
 						window.erase()
 						window.border(0)
 						if pause == True:
@@ -149,11 +149,11 @@ def game(): #game
 					health-=1
 					curses.flash()
 					ls[x-2][y-1]=' ';ls[x-2][y-2]=' ';ls[x-2][y]=' '
-				else:
+				else: #Game Over!!!
 					curses.beep()
 					window.erase()
 					window.border(0)
-					window.addstr(12, 33, 'Game Over!!!', curses.color_pair(5))
+					window.addstr(12, 33, 'Game Over!!!', curses.color_pair(5)) # Game Over!!!
 					q=window.getch()
 					time.sleep(1)
 					return
@@ -167,49 +167,48 @@ def game(): #game
 		else: # if paused
 			if ord('q') == q: #if the user want's to quit
 				return
-def menu():
-	dims = window.getmaxyx()
-	ls2 = ['>', '<']
+def menu(): # menu
+	dims = window.getmaxyx() # get size of screen
+	ls2 = ['>', '<'] # the one that is selected has a value of ['>', '<']
 	ls3 = ['', '']
-	g2 = 2
+	g2 = 2 #for color
 	g3 = 1
 	n = 2
-	wt = ''
-	while 1:
+	wt = '' # which option
+	while 1: # menu loop
 		q = 'f'
 		window.erase()
 		dims = window.getmaxyx()
 		window.border(0)
+		#Decoration:
 		window.addstr((dims[0]/2)-6, (dims[1]/2)-len('Ki\'s Adventures')/2+1, 'Ki\'s Adventures', curses.color_pair(6))
 		window.addstr((dims[0]/2)-1, (dims[1]/2)-len(ls2[0]+'Play Game'+ls2[1])/2, ls2[0]+'Play Game'+ls2[1], curses.color_pair(g2))
 		window.addstr((dims[0]/2)+1, (dims[1]/2)-len(ls3[0]+'Quit'+ls3[1])/2, ls3[0]+'Quit'+ls3[1], curses.color_pair(g3))
 		q = window.getch()
-		if q == curses.KEY_UP:
+		if q == curses.KEY_UP: # changing the selected one
 			if n > 2:
 				n -= 1
-		elif q == curses.KEY_DOWN:
+		elif q == curses.KEY_DOWN: # changing the selected one
 			if n < 3:
 				n += 1
-		if n == 2:
+		if n == 2: # changing the selected one
 			wt = 'g'
 			g2 = 2
 			g1 = 1
 			g3 = 1
 			ls2[0], ls2[1] = '>', '<'
 			ls3[0], ls3[1] = '', ''
-		elif n == 3:
+		elif n == 3: # changing the selected one
 			wt = 'q'
 			g3 = 2
 			g1 = 1
 			g2 = 1
 			ls3[0], ls3[1] = '>', '<'
 			ls2[0], ls2[1] = '', ''
-		if q == 10:
-			if wt == 's':
-				pass
-			elif wt == 'g':
+		if q == 10: # User pressed "Return"
+			if wt == 'g': # game
 				game()
-			elif wt == 'q':
+			elif wt == 'q': # Exit of game
 				c = 0
 				while 1:
 					curses.endwin()
