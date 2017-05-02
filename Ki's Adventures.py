@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding: latin-1
 #KAd or Ki's Adventures is a mario like game...
-#Made By Mrfisher199
+#Made By Mrpyfisher199
 import curses, time, random
 from random import randint as ran
 s = curses.initscr() # line 7 to line 26 is curses initiation.
