@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #coding: latin-1
+#https://www.youtube.com/watch?v=Cj6ipZZIQn0&t=1s
 #KAd or Ki's Adventures is a mario like game...
 #Made By Mrpyfisher199
 import curses, time, random
